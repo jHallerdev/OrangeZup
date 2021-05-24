@@ -1,0 +1,57 @@
+POST http://localhost:8080/user/save
+Content-Type: application/json
+
+{
+    "name" : "Marcos",
+    "email" : "marcos@gmail.com",
+    "cpf" : "26434088027",
+    "birthDate" : "15/10/1989"
+}
+
+Resposta POST: User created sucessfully! E Http 201
+
+GET http://localhost:8080/user/getUserByEmailAndCpf?email=marcos@gmail.com&cpf=26434088027
+
+Resposta GET: Http 200
+
+{
+  "name": "Marcos",
+  "email": "marcos@gmail.com",
+  "cpf": "26434088027",
+  "birthDate": "1989-10-16",
+  "vehicles": []
+}
+
+POST http://localhost:8080/vehicle/saveUserVehicle?email=marcos@gmail.com&cpf=26434088027
+Content-Type: application/json
+
+{
+    "type" : "caminhoes",
+    "brand" : "IVECO",
+    "model" : "CityClass ESCOLAR (diesel)(E5)",
+    "year" : "2016"
+}
+
+Resposta POST: Vehicle created sucessfuly! E Http 201
+
+GET http://localhost:8080/user/getUserByEmailAndCpf?email=marcos@gmail.com&cpf=26434088027
+
+Resposta GET: Http 200
+
+{
+  "name": "Marcos",
+  "email": "marcos@gmail.com",
+  "cpf": "26434088027",
+  "birthDate": "1989-10-16",
+  "vehicles": [
+    {
+      "type": "caminhoes",
+      "brand": "IVECO",
+      "model": "CityClass ESCOLAR (diesel)(E5)",
+      "year": "2016",
+      "price": "98.275,00",
+      "casterDay": "THURSDAY",
+      "activeCarCaster": false
+    }
+  ]
+}
